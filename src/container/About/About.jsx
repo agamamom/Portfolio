@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import images from '../../constants/images'
 import './About.scss'
 import { client, urlFor } from '../../client'
+import AppWrapp from '../../wrapper/index'
+
 
 const About = () => {
       const [abouts, setAbouts] = useState([]);
@@ -44,4 +46,4 @@ const About = () => {
       )
 }
 
-export default About
+export default AppWrapp(About, 'about')
