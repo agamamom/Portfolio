@@ -18,6 +18,21 @@ const Work = () => {
             });
       }, []);
 
+      const handleWorkFilter = (item) => {
+            setActiveFilter(item);
+            setAnimateCard([{ y: 100, opacity: 0 }]);
+
+            setTimeout(() => {
+                  setAnimateCard([{ y: 0, opacity: 1 }]);
+
+                  if (item === 'All') {
+                        setFilterWork(works);
+                  }
+                  else {
+                        setFilterWork(works.filter((work) => work.tags.includes(item)));
+                  }
+            }, 500);
+      }
       return (
             <>
                   <h2 className='head-text'>
@@ -30,7 +45,7 @@ const Work = () => {
                               <div
                                     key={index}
                                     onClick={() => handleWorkFilter(item)}
-                                    className="{`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}"
+                                    className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
                               >
                                     {item}
                               </div>
@@ -53,8 +68,8 @@ const Work = () => {
                                                 <a href={work.projectLink}>
                                                       <motion.div
                                                             whileInView={{ scale: [0, 1] }}
-                                                            whileHover={{ scale: [1, 0.90] }}
-                                                            transition={{ duration: 0.25 }}
+                                                            whileHover={{ scale: [1, 0.9] }}
+                                                            transition={{ duration: 0.1 }}
                                                             className="app__flex"
                                                       >
                                                             <AiFillEye />
@@ -63,8 +78,8 @@ const Work = () => {
                                                 <a href={work.codeLink}>
                                                       <motion.div
                                                             whileInView={{ scale: [0, 1] }}
-                                                            whileHover={{ scale: [1, 0.90] }}
-                                                            transition={{ duration: 0.25 }}
+                                                            whileHover={{ scale: [1, 0.9] }}
+                                                            transition={{ duration: 0.1 }}
                                                             className="app__flex"
                                                       >
                                                             <AiFillGithub />
@@ -86,4 +101,4 @@ const Work = () => {
       );
 };
 
-export default Work
+export default AppWrap(Work, 'work')
