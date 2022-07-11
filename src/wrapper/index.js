@@ -1,2 +1,7 @@
-import AppWrapp from "./AppWrapp";
-export default AppWrapp
+import AppWrapp from './AppWrapp';
+import MotionWrap from './MotionWrap';
+
+export {
+    AppWrapp,
+    MotionWrap,
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import AppWrapp from '../../wrapper/index';
+import { AppWrapp } from '../../wrapper/index';
 import images from '../../constants/images';
 import './Header.scss';
 

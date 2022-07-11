@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import images from '../../constants/images'
 import './About.scss'
 import { client, urlFor } from '../../client'
-import AppWrapp from '../../wrapper/index'
+import { AppWrapp, MotionWrap } from '../../wrapper/index'
 
 
 const About = () => {
@@ -21,7 +21,7 @@ const About = () => {
             <>
                   <h2 className='head-text'>
                         I know That
-                        <span>Good Apps</span>
+                        <span> Good Apps</span>
                         <br />
                         <span>Good Business</span>
                   </h2>
@@ -46,4 +46,7 @@ const About = () => {
       )
 }
 
-export default AppWrapp(About, 'about')
+export default AppWrapp(MotionWrap(About, 'app__about'),
+      'about',
+      'app__whitebg',
+);
